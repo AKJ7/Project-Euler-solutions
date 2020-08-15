@@ -3,6 +3,8 @@
 #include <stddef.h>
 #include <string.h>
 #include <stdlib.h>
+#include "common.h"
+
 
 // Trivial solution
 size_t getSum(size_t max)
@@ -40,9 +42,9 @@ size_t getSum2(size_t max)
  */
 int main(int argc, char** argv)
 {
-    size_t max = 1000;
-    printf("Result: %lu\n", getSum(max));
-    printf("Smarter Result: %lu\n", getSum2(max));
+    ASSERT_ARGUMENTS(argc, argv, 1, "<max_number>");
+    unsigned long max = strtoul(argv[1], 0, 10);
+    printf("%zu", getSum(max));
 
     return 0;
 }
